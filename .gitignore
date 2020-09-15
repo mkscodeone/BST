@@ -1,0 +1,29 @@
+.vs/
+obj/
+bin/
+
+/Scripts/Logs
+/Scripts/BuildDb
+
+/Build/Debug
+/Build/Release
+/Projects/audIT.Web/App_Data/TrialBalanceFileImports
+/Projects/audIT.Web/App_Sprites/**/highCompat.css
+/Projects/audIT.Web/App_Sprites/**/lowCompat.css
+/Projects/audIT.Web/App_Sprites/**/timeStamp.dat
+/Projects/audIT.Web/App_Sprites/**/sprite0.png
+/Projects/audIT.Web/Logs/*.log
+/Projects/Database/Database.jfm
+/Projects/Database/Database.dbmdl
+/Solutions/_ReSharper.Caches
+
+*.user
+BuildDb_LoadLibData.txt
+BuildDb_LoadTestData.txt
+
+# Temp files
+~$*.xlsx
+~$*.docx
+**/TestResults
+
+# testing

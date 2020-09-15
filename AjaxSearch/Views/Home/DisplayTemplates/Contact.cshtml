@@ -1,0 +1,7 @@
+﻿@model AjaxSearch.Data.Contact
+
+<div data-id="@Model.Id">   
+    <b>@Model.Name</b>
+    @Model.Company    
+    @Html.ActionLink("View", "ViewContact", new { Model.Id })
+</div>

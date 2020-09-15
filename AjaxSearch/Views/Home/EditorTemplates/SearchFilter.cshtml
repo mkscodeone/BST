@@ -1,0 +1,42 @@
+﻿@model AjaxSearch.Models.Home.SearchFilter
+
+<div>
+    @Html.TextBoxFor(m => m.Term)
+</div>
+
+<script type="text/javascript">
+
+    $(function() {
+        var searchBox = $('#@Html.IdFor(m => m.Term)');
+        
+        searchBox.keyup(function () {
+            GetSearchResult(searchBox.val());
+        });
+        GetSearchResult('');
+    });
+    function GetSearchResult(filter) {
+         $.ajax(
+                {
+                 url: '/api/UserSearch?filter=' + filter,
+                    async: true,
+                    cache: false,
+                    type: 'GET',
+                    cache: false,
+                    contentType: "application/json",
+                    success: function (data) { $('#searchResults').html(GetData(data)); }
+                });
+    }
+    function GetData(data) {
+        var tbodyHtml = '<table><thead><tr><th>Name</th><th>Company</th><th></th></tr></thead>';
+        data.map(function (d) {
+            tbodyHtml += `<tr>
+                            <td><b>${d.Name}</b></td>
+                            <td>${d.Company}</td>
+                            <td><a href='/home/ViewContact/${d.Id}'>View</a></td>
+                         </tr>`;
+        });
+        tbodyHtml += '</table>';
+        return tbodyHtml;
+    }
+
+</script>
